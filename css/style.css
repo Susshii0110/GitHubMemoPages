@@ -78,3 +78,24 @@ textarea:not([rows]) {
 /* ここまでがリセットcssの内容 */
 /* ここからがスタイルcssの内容 */
 
+/* article(main) */
+
+/* 目次 */
+.table-of-contents {
+    width: 75%;
+    border: 1px solid #ccc;      /* 枠線 */
+    background-color: #eaefef;   /* 枠内の背景色（灰色） */
+    padding: 8px 16px;                /* 内側の余白 */
+    display: inline-block;        /* 目次の内容にフィットしたサイズにする */
+    border-radius: 8px;          /* 角を丸くする */
+}
+.table-of-contents li {
+    line-height: 2;  /* 行間を広げる */
+}
+.table-of-contents a {
+    text-decoration:none;
+}
+.table-of-contents a:hover {
+  color: blue;
+  text-decoration: underline;
+}
