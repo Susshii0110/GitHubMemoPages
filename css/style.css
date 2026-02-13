@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/* リセットcss */
 /* Box sizing rules */
 *,
 *::before,
@@ -74,4 +75,6 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
+/* ここまでがリセットcssの内容 */
+/* ここからがスタイルcssの内容 */
 
