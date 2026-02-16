@@ -78,3 +78,22 @@ textarea:not([rows]) {
 /* ここまでがリセットcssの内容 */
 /* ここからがスタイルcssの内容 */
 
+/* サイドバー */
+.SectionNav {
+    border: 1px solid #ccc;      /* 枠線 */
+    padding: 16px;                /* 内側の余白 */
+    display: inline-block;        /* 目次の内容にフィットしたサイズにする */
+}
+.SectionNav li {
+  line-height:2.0;
+}
+.SectionNav li a {
+  font-size:20px;
+}
+.SectionNav a {
+    text-decoration: none; /* 通常時は下線なし */
+}
+.SectionNav a:hover {
+    color: blue;
+    text-decoration: underline; /* ホバー時のみ下線あり */
+}
