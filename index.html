@@ -13,7 +13,8 @@
         <article>
           <h2>Git,GitHubのコマンドメモ</h2>
           <p class="initialComment">
-            Git,GitHubで用いるコマンドを自分用にまとめたものです。
+            Git,GitHubで用いるコマンドを自分用にまとめたものです。<br>
+            後々追加していく予定です。
           </p>
           <nav class="table-of-contents">
             <h3>目次</h3>
@@ -25,13 +26,20 @@
           </nav>
 
           <section id="section1">
-            <h3>セクション1</h3>
-            <p>コンテンツ...</p>
+            <h3>初期設定(config)</h3>
+            <p>
+              初めてgitを入れたときにはユーザー情報を設定する<br>
+              <pre><code>git config --global user.name "ユーザー名"
+git config --global user.email "メールアドレス"</code></pre>
+              --local > --global > --system の順番で優先 
+            </p>
           </section>
 
           <section id="section2">
-            <h3>セクション2</h3>
-            <p>コンテンツ...</p>
+            <h3>Git: コミット関連</h3>
+            <p>
+              ワーキングディレクトリ->ステージングエリア->Gitディレクトリ<br>
+            </p>
           </section>
 
           <section id="section3">

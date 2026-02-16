@@ -99,3 +99,13 @@ textarea:not([rows]) {
   color: blue;
   text-decoration: underline;
 }
+
+/* コンテンツ */
+pre {
+    background-color: #f0f0f0;
+    padding: 16px;
+    border-radius: 4px;
+    overflow-x: auto;  /* 横にはみ出た場合スクロールできるようにする */
+    line-height:1.5;
+    font-size:16px;
+}
