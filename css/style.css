@@ -102,7 +102,21 @@ textarea:not([rows]) {
 
 /* コンテンツ */
 
+code {
+    display: block;  /* 追加 */
+    background-color: #f0f0f0;
+    padding: 4px 6px;
+    border-radius: 4px;
+    overflow-x: auto;
+    line-height:1.5;
+    font-size:16px;
+}
 pre {
+    background-color: transparent;  /* preの背景色をリセット */
+    padding: 0;
+    margin: 0;
+}
+pre code {
     background-color: #f0f0f0;
     padding: 16px;
     border-radius: 4px;
