@@ -101,6 +101,7 @@ textarea:not([rows]) {
 }
 
 /* コンテンツ */
+
 pre {
     background-color: #f0f0f0;
     padding: 16px;
@@ -108,4 +109,18 @@ pre {
     overflow-x: auto;  /* 横にはみ出た場合スクロールできるようにする */
     line-height:1.5;
     font-size:16px;
+}
+
+/* 表 */
+.CommandList h3 {
+  font-size:16px;
+  margin-bottom:5px;
+}
+.CommandList table {
+    border-collapse: collapse;   /* 枠線を一本にまとめる */
+    background-color: #f0f0f0;  /* 表全体の背景色 */
+}
+.CommandList table th, td {
+    border: 1px solid #ccc;     /* セルに枠線を引く */
+    padding: 8px;                /* セル内の余白 */
 }
