@@ -197,6 +197,50 @@ git config --global user.email "メールアドレス"</code></pre>
             </p>
           </section>
 
+          <section id="section5">
+            <h3>Git: ブランチ関連</h3>
+            <p>
+              <code>git branch</code>
+              現在の全てのブランチを表示する。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>-a | --all</td>
+                    <td>ローカル&リモートのブランチ表示</td>
+                  </tr>
+                  <tr>
+                    <td>-vv</td>
+                    <td>最新のコミットidとメッセージを今いるリモートブランチも加えて表示</td>
+                  </tr>
+                  <tr>
+                    <td>{新ブランチ名}</td>
+                    <td>ブランチの作成</td>
+                  </tr>
+                  <tr>
+                    <td>{新ブランチ名} {コミットid}</td>
+                    <td>コミットidからブランチ作成</td>
+                  </tr>
+                  <tr>
+                    <td>-d | --delete</td>
+                    <td>ブランチの削除(マージ済みのみ)</td>
+                  </tr>
+                  <tr>
+                    <td>-D</td>
+                    <td>強制的なブランチ削除</td>
+                  </tr>
+                  <tr>
+                    <td>-m</td>
+                    <td>ブランチ名の変更</td>
+                  </tr>
+                  <tr>
+                    <td>--no-merged</td>
+                    <td>マージされていないブランチを表示</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+          </section>
         </article>
 
       </main>
