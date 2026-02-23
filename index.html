@@ -168,7 +168,29 @@ git config --global user.email "メールアドレス"</code></pre>
                   </tr>
                   <tr>
                     <td>--hard</td>
-                    <td>コミット＆ステージングエリア＆ワーキングディレクトリ全てを削除</td>
+                    <td>コミット＆ステージングエリア＆ワーキングディレクトリ全て削除</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git revert {コミットハッシュ}</code>
+              今のコミットを残して、次のコミットに巻き戻したものを作る。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>--no-edit</td>
+                    <td>エディタを開かずに実行(コミットメッセージを自動で)</td>
+                  </tr>
+                  <tr>
+                    <td>-n | --no-commit</td>
+                    <td>コミットせずに変更をステージングエリアへ</td>
+                  </tr>
+                  <tr>
+                    <td>-m 1 {マージコミットid}</td>
+                    <td>マージコミットをrevertするときに使う。1は親はどれかを指定する</td>
                   </tr>
                 </table>
               </div>
