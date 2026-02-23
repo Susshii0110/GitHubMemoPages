@@ -130,6 +130,27 @@ git config --global user.email "メールアドレス"</code></pre>
             </p>
           </section>
 
+          <section id="section4">
+            <h3>Git: コミット削除系</h3>
+            <h4>コミット前</h4>
+            <p>
+              <code>git restore {ファイル名}</code>
+              コミット前であれば、以下のオプションで変更を削除できる。
+              <div class="CommandList">
+                <h4>オプション(一部)</h3>
+                <table>
+                  <tr>
+                    <td>-S | --staged</td>
+                    <td>ステージしたものをワーキングディレクトリに戻す</td>
+                  </tr>
+                  <tr>
+                    <td>-s | --source=</td>
+                    <td>指定したコミットを復元</td>
+                  </tr>
+                </table>
+            </p>
+          </section>
+
         </article>
 
       </main>
