@@ -302,10 +302,32 @@ git config --global user.email "メールアドレス"</code></pre>
             <p>
               <code>git remote</code>
               リモートリポジトリの確認
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>-v | --verbose</td>
+                    <td>リモートリポジトリのURLも表示</td>
+                  </tr>
+                  <tr>
+                    <td>add {リモート名} {URL}</td>
+                    <td>リモートリポジトリの追加</td>
+                  </tr>
+                  <tr>
+                    <td>remove {リモート名}</td>
+                    <td>リモートリポジトリの削除</td>
+                  </tr>
+                  <tr>
+                    <td>rename {旧リモート名} {新リモート名}</td>
+                    <td>リモートリポジトリの名前変更</td>
+                  </tr>
+                </table>
+              </div>
             </p>
+
             <p>
               <code>git push {リモート名} {ブランチ名}</code>
-              ローカルのブランチをリモートに送る。
+              ローカルブランチをリモートに送る(push)。
               <div class="CommandList">
                 <h4>オプション(一部)</h4>
                 <table>
