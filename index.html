@@ -296,6 +296,41 @@ git config --global user.email "メールアドレス"</code></pre>
               </div>
             </p>
           </section>
+
+          <section id="section6">
+            <h3>Git: リモートリポジトリ関連</h3>
+            <p>
+              <code>git remote</code>
+              リモートリポジトリの確認
+            </p>
+            <p>
+              <code>git push {リモート名} {ブランチ名}</code>
+              ローカルのブランチをリモートに送る。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>-u | --set-upstream</td>
+                    <td>ローカルブランチとリモートブランチを紐づける</td>
+                  </tr>
+                  <tr>
+                    <td>--force</td>
+                    <td>強制的にpushする(注意)</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git pull {リモート名} {ブランチ名}</code>
+              リモートの変更をローカルに取り込む。
+            </p>
+
+            <p>
+              <code>git fetch {リモート名}</code>
+              リモートの変更をローカルに取り込むが、ローカルのブランチには反映されない。
+            </p>
+          </section>
         </article>
 
       </main>
