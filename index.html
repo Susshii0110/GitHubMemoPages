@@ -333,11 +333,22 @@ git config --global user.email "メールアドレス"</code></pre>
                 <table>
                   <tr>
                     <td>-u | --set-upstream</td>
-                    <td>ローカルブランチとリモートブランチを紐づける</td>
+                    <td>ローカルブランチとリモートブランチを紐づける。git pushのみで良くなる(最初に必要)</td>
                   </tr>
                   <tr>
-                    <td>--force</td>
-                    <td>強制的にpushする(注意)</td>
+                    <td>--all</td>
+                    <td>全てのローカルブランチを送る</td>
+                  </tr>
+                  <tr>
+                    <td>--tags</td>
+                    <td>全てのタグを送る</td>
+                  <tr>
+                    <td>-d | --delete</td>
+                    <td>リモートブランチの削除</td>
+                  </tr>
+                  <tr>
+                    <td>-n | --dry-run</td>
+                    <td>実際にpushをせずに、push内容と結果の表示</td>
                   </tr>
                 </table>
               </div>
