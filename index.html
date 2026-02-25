@@ -382,6 +382,41 @@ git config --global user.email "メールアドレス"</code></pre>
               git pullはgit fetch->git merge(rebase)
             </p>
           </section>
+
+          <section id="section7">
+            <h3>Git: その他</h3>
+            <p>
+              <code>git stash</code>
+              ワーキングディレクトリの変更を一時的に保存して、クリーンな状態にする。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>save {メッセージ}</td>
+                    <td>変更をstashして、メッセージをつける</td>
+                  </tr>
+                  <tr>
+                    <td>list</td>
+                    <td>stashの一覧表示</td>
+                  </tr>
+                  <tr>
+                    <td>apply {stash名}</td>
+                    <td>stashを適用するが、stashは削除しない</td>
+                  </tr>
+                  <tr>
+                    <td>pop {stash名}</td>
+                    <td>stashを適用して、stashは削除する</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git tag {タグ名} {コミットid}</code>
+              タグの作成。コミットidは省略可能で、省略した場合はHEADが指すコミットにタグがつく。
+              タグは特定のコミットに名前をつけるもの。リリースなどで使われる。
+            </p>
+          </section>
         </article>
 
       </main>
