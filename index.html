@@ -405,7 +405,8 @@ git config --global user.email "メールアドレス"</code></pre>
             <h3>Git: その他</h3>
             <p>
               <code>git stash</code>
-              ワーキングディレクトリの変更を一時的に保存して、クリーンな状態にする。
+              ワーキングディレクトリの変更を一時的に保存して、クリーンな状態にする。<br>
+              コミットしていない状態でブランチを切り替えたいときなどに便利。<br>
               <div class="CommandList">
                 <h4>オプション(一部)</h4>
                 <table>
@@ -431,7 +432,7 @@ git config --global user.email "メールアドレス"</code></pre>
 
             <p>
               <code>git tag {タグ名} {コミットid}</code>
-              タグの作成。コミットidは省略可能で、省略した場合はHEADが指すコミットにタグがつく。
+              タグの作成。コミットidは省略可能。省略した場合はHEADが指すコミットにタグがつく。
               タグは特定のコミットに名前をつけるもの。リリースなどで使われる。
             </p>
           </section>
