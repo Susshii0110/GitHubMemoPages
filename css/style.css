@@ -91,9 +91,9 @@ textarea:not([rows]) {
   font-size:20px;
 }
 .SectionNav a {
-    text-decoration: none; /* 通常時は下線なし */
+  text-decoration: none; /* 通常時は下線なし */
 }
 .SectionNav a:hover {
-    color: blue;
-    text-decoration: underline; /* ホバー時のみ下線あり */
+  color: blue;
+  text-decoration: underline; /* ホバー時のみ下線あり */
 }
