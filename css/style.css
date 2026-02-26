@@ -78,6 +78,70 @@ textarea:not([rows]) {
 /* ここまでがリセットcssの内容 */
 /* ここからがスタイルcssの内容 */
 
+/* article(main) */
+
+/* 目次 */
+.table-of-contents {
+    width: 75%;
+    border: 1px solid #ccc;      /* 枠線 */
+    background-color: #eaefef;   /* 枠内の背景色（灰色） */
+    padding: 8px 16px;                /* 内側の余白 */
+    display: inline-block;        /* 目次の内容にフィットしたサイズにする */
+    border-radius: 8px;          /* 角を丸くする */
+}
+.table-of-contents li {
+    line-height: 2;  /* 行間を広げる */
+}
+.table-of-contents a {
+    text-decoration:none;
+}
+.table-of-contents a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+/* コンテンツ */
+
+code {
+    display: block;  /* 追加 */
+    background-color: #f0f0f0;
+    padding: 4px 6px;
+    border-radius: 4px;
+    overflow-x: auto;
+    line-height:1.5;
+    font-size:16px;
+}
+pre {
+    background-color: transparent;  /* preの背景色をリセット */
+    padding: 0;
+    margin: 0;
+}
+pre code {
+    background-color: #f0f0f0;
+    padding: 16px;
+    border-radius: 4px;
+    overflow-x: auto;  /* 横にはみ出た場合スクロールできるようにする */
+    line-height:1.5;
+    font-size:16px;
+}
+
+/* 表 */
+.CommandList {
+  margin:20px 0
+}
+.CommandList h4 {
+  font-size:16px;
+  margin-bottom:5px;
+}
+.CommandList table {
+    border-collapse: collapse;   /* 枠線を一本にまとめる */
+    background-color: #f0f0f0;  /* 表全体の背景色 */
+}
+.CommandList table th, td {
+    border: 1px solid #ccc;     /* セルに枠線を引く */
+    padding: 8px;                /* セル内の余白 */
+}
+
 /* サイドバー */
 .SectionNav {
     border: 1px solid #ccc;      /* 枠線 */
@@ -96,4 +160,3 @@ textarea:not([rows]) {
 .SectionNav a:hover {
   color: blue;
   text-decoration: underline; /* ホバー時のみ下線あり */
-}
