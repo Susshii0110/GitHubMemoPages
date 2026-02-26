@@ -3,11 +3,442 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Git,GitHubのコマンドメモ">
+    <meta name="description" content="Gitのコマンドメモ">
     <link rel="stylesheet" href="css/style.css">
-    <title>Git,GitHubのコマンドメモ</title>
+    <title>Gitのコマンドメモ</title>
   </head>
   <body class="GitHubMemoPage">
+    <div>
+      <main>
+        <article>
+          <h2>Gitのコマンドメモ</h2>
+          <p class="initialComment">
+            Gitで用いるコマンドを自分用にまとめたものです。<br>
+            後々追加していく予定です。<br>
+            間違いがある可能性があります。
+          </p>
+          <nav class="table-of-contents">
+            <h3>目次</h3>
+            <ul>
+              <li><a href="#section1">初期設定(config)</a></li>
+              <li><a href="#section2">Git: コミット関連</a></li>
+              <li><a href="#section3">Git: 状況確認系</a></li>
+              <li><a href="#section4">Git: コミット削除系</a></li>
+              <li><a href="#section5">Git: ブランチ関連</a></li>
+              <li><a href="#section6">Git: リモートリポジトリ関連</a></li>
+              <li><a href="#section7">Git: その他</a></li>
+            </ul>
+          </nav>
 
+          <section id="section1">
+            <h3>初期設定(config)</h3>
+            <p>
+              初めてgitを入れたときにはユーザー情報を設定する<br>
+              <pre><code>git config --global user.name "ユーザー名"
+git config --global user.email "メールアドレス"</code></pre>
+              --local > --global > --system の順番で優先 
+            </p>
+          </section>
+
+          <section id="section2">
+            <h3>Git: コミット関連</h3>
+            <p>
+              ワーキングディレクトリ->ステージングエリア->Gitディレクトリ<br>
+              の順に進む。<br>
+            </p>
+            <p>
+              <code>git add {ファイル名}</code>
+              ワーキングディレクトリのファイルをステージングエリアに移す。<br>
+              <div class="CommandList">
+                <h4>{ファイル名}以外にも以下のオプションがある(一部)</h4>
+                <table>
+                  <tr>
+                    <td>.</td>
+                    <td>今いるディレクトリ内の変更された全てのファイルを追加</td>
+                  </tr>
+                  <tr>
+                    <td>-A | --all</td>
+                    <td>全てのディレクトリの変更されたファイルを追加</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+            <p>
+              <code>git commit -m "コメント"</code>
+              ステージングエリアからGitディレクトリにコミットする。
+              <div class="CommandList">
+                <h4>-m以外にも以下のオプションがある(一部)</h4>
+                  <table>
+                  <tr>
+                    <td>-a | --all</td>
+                    <td>自動的にステージングしてコミット(新規ファイルは除く)</td>
+                  </tr>
+                  <tr>
+                    <td>--amend</td>
+                    <td>直前のコミットを変更する(-mなどを使えばコメントの編集)</td>
+                  </tr>
+                  <tr>
+                    <td>-p | --patch</td>
+                    <td>一部の部分だけコミット(ステージングはしない)</td>
+                  </tr>
+                  <tr>
+                    <td>--allow-empty</td>
+                    <td>変更を追加せずにコミット</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+          </section>
+
+          <section id="section3">
+            <h3>Git: 状況確認系</h3>
+            <p>
+              <code>git status</code>
+              現在のレポジトリの状況を知ることが出来る。
+            </p>
+            <p>
+              <code>git log</code>
+              リポジトリの変更履歴の確認
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>--oneline</td>
+                    <td>1行で表示</td>
+                  </tr>
+                  <tr>
+                    <td>--graph</td>
+                    <td>ブランチの分岐をグラフで表示</td>
+                  </tr>
+                  <tr>
+                    <td>-n {数字}</td>
+                    <td>数字の分だけ表示</td>
+                  </tr>
+                  <tr>
+                    <td>--all</td>
+                    <td>全てのブランチの表示</td>
+                  </tr>
+                </table>
+              </div>
+              vscodeに拡張機能「Git Graph」を入れていれば
+              <code>>Git Graph: View Git Graph(Git log)</code>
+              で確認可能。
+            </p>
+            <p>
+              <code>git branch</code>
+              今いるブランチと全てのブランチの表示
+            </p>
+
+            <p>
+              <code>git diff</code>
+              ワーキングディレクトリとステージングエリアの差分を表示。<br>
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>--staged</td>
+                    <td>ステージングエリアとGitディレクトリの差分を表示</td>
+                  </tr>
+                  <tr>
+                    <td>{コミットid}</td>
+                    <td>コミットとワーキングディレクトリの差分を表示</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+          </section>
+
+          <section id="section4">
+            <h3>Git: コミット削除系</h3>
+            <h4>コミット前</h4>
+            <p>
+              <code>git restore {ファイル名}</code>
+              コミット前のワーキングツリーの変更を削除(vscodeだと確認が必要?)。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>-S | --staged</td>
+                    <td>ステージしたものをワーキングディレクトリに戻す</td>
+                  </tr>
+                  <tr>
+                    <td>-s | --source=</td>
+                    <td>指定したコミットから復元</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+            <h4>コミット後</h4>
+            <p>
+              <code>git reset {コミットハッシュ}</code>
+              コミットを削除して巻き戻す。<br>
+              コミットハッシュはgit logなどで出てくる長い英数字列。<br>
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>--soft</td>
+                    <td>コミットだけを削除、ステージングエリア＆ワーキングディレクトリはそのまま</td>
+                  </tr>
+                  <tr>
+                    <td>--mixed</td>
+                    <td>コミットとステージングエリアを削除、ワーキングディレクトリはそのまま(デフォルト)</td>
+                  </tr>
+                  <tr>
+                    <td>--hard</td>
+                    <td>コミット＆ステージングエリア＆ワーキングディレクトリ全て削除</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git revert {コミットハッシュ}</code>
+              今のコミットを残して、次のコミットに巻き戻したものを作る。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>--no-edit</td>
+                    <td>エディタを開かずに実行(コミットメッセージを自動で)</td>
+                  </tr>
+                  <tr>
+                    <td>-n | --no-commit</td>
+                    <td>コミットせずに変更をステージングエリアへ</td>
+                  </tr>
+                  <tr>
+                    <td>-m 1 {マージコミットid}</td>
+                    <td>マージコミットをrevertするときに使う。1は親はどれかを指定する</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+          </section>
+
+          <section id="section5">
+            <h3>Git: ブランチ関連</h3>
+            <p>
+              <code>git branch</code>
+              現在の全てのブランチを表示する。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>-a | --all</td>
+                    <td>ローカル&リモートのブランチ表示</td>
+                  </tr>
+                  <tr>
+                    <td>-vv</td>
+                    <td>最新のコミットidとメッセージを今いるリモートブランチも加えて表示</td>
+                  </tr>
+                  <tr>
+                    <td>{新ブランチ名}</td>
+                    <td>ブランチの作成</td>
+                  </tr>
+                  <tr>
+                    <td>{新ブランチ名} {コミットid}</td>
+                    <td>コミットidからブランチ作成</td>
+                  </tr>
+                  <tr>
+                    <td>-d | --delete</td>
+                    <td>ブランチの削除(マージ済みのみ)</td>
+                  </tr>
+                  <tr>
+                    <td>-D</td>
+                    <td>強制的なブランチ削除</td>
+                  </tr>
+                  <tr>
+                    <td>-m</td>
+                    <td>ブランチ名の変更</td>
+                  </tr>
+                  <tr>
+                    <td>--no-merged</td>
+                    <td>マージされていないブランチを表示</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git checkout {ブランチ名}</code>
+              特定のブランチに移動する。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>-b</td>
+                    <td>ブランチを作成して移動(git branch不要)</td>
+                  </tr>
+                  <tr>
+                    <td>{コミットid}</td>
+                    <td>特定のコミットに移動</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git merge {ブランチ名}</code>
+              ブランチをマージ(結合)する。<br>
+              ・マージするブランチがマージ先のブランチに含まれているとき、ブランチの位置のみが変わる。(fast-forward)<br>
+              ・マージするブランチがマージ先のブランチから枝分かれしているとき、新たなマージコミットを作成される。<br>
+              マージを行ったとき、conflictが起こればマージツールで解消する。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>--no-ff</td>
+                    <td>マージコミットを必ず作成する</td>
+                  </tr>
+                  <tr>
+                    <td>--squash</td>
+                    <td>マージコミットを作成せず、ブランチのコミットの内容をコピー(マージ履歴に残らない)</td>
+                  </tr>
+                  <tr>
+                    <td>--no-commit</td>
+                    <td>マージコミットを作成せずにマージ(マージ履歴に残る)</td>
+                  </tr>
+                  <tr>
+                    <td>--ff-only</td>
+                    <td>fast-forwardのみを許可する</td>
+                  </tr>
+                  <tr>
+                    <td>--abort</td>
+                    <td>コンフリクト時にマージを中止して、マージ前の状態に戻す</td>
+                  </tr>
+                  <tr>
+                    <td>--continue</td>
+                    <td>マージのコンフリクトを解消した後、マージを続行する</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+          </section>
+
+          <section id="section6">
+            <h3>Git: リモートリポジトリ関連</h3>
+            <p>
+              <code>git remote</code>
+              リモートリポジトリの確認
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>-v | --verbose</td>
+                    <td>リモートリポジトリのURLも表示</td>
+                  </tr>
+                  <tr>
+                    <td>add {リモート名} {URL}</td>
+                    <td>リモートリポジトリの追加</td>
+                  </tr>
+                  <tr>
+                    <td>remove {リモート名}</td>
+                    <td>リモートリポジトリの削除</td>
+                  </tr>
+                  <tr>
+                    <td>rename {旧リモート名} {新リモート名}</td>
+                    <td>リモートリポジトリの名前変更</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git push {リモート名} {ブランチ名}</code>
+              ローカルブランチをリモートに送る(push)。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>-u | --set-upstream</td>
+                    <td>ローカルブランチとリモートブランチを紐づける。git pushのみで良くなる(最初に必要)</td>
+                  </tr>
+                  <tr>
+                    <td>--all</td>
+                    <td>全てのローカルブランチを送る</td>
+                  </tr>
+                  <tr>
+                    <td>--tags</td>
+                    <td>全てのタグを送る</td>
+                  <tr>
+                    <td>-d | --delete</td>
+                    <td>リモートブランチの削除</td>
+                  </tr>
+                  <tr>
+                    <td>-n | --dry-run</td>
+                    <td>実際にpushをせずに、push内容と結果の表示</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git pull {リモート名} {ブランチ名}</code>
+              リモートの変更をローカルに取り込む。
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>-r | --rebase</td>
+                    <td>マージコミットを作らずに、リモートコミットをローカルコミットの前に持ってくる</td>
+                  </tr>
+                  <tr>
+                    <td>--no-commit</td>
+                    <td>マージコミットを行わずに、マージ(マージ履歴に残る)</td>
+                  </tr>
+                  <tr>
+                    <td>--ff-only</td>
+                    <td>fast-forward可能時のみ許可する</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git fetch {リモート名}</code>
+              リモートの変更をローカルに取り込むが、ローカルのブランチには反映されない。<br>
+              git pullはgit fetch->git merge(rebase)
+            </p>
+          </section>
+
+          <section id="section7">
+            <h3>Git: その他</h3>
+            <p>
+              <code>git stash</code>
+              ワーキングディレクトリの変更を一時的に保存して、クリーンな状態にする。<br>
+              コミットしていない状態でブランチを切り替えたいときなどに便利。<br>
+              <div class="CommandList">
+                <h4>オプション(一部)</h4>
+                <table>
+                  <tr>
+                    <td>save {メッセージ}</td>
+                    <td>変更をstashして、メッセージをつける</td>
+                  </tr>
+                  <tr>
+                    <td>list</td>
+                    <td>stashの一覧表示</td>
+                  </tr>
+                  <tr>
+                    <td>apply {stash名}</td>
+                    <td>stashを適用するが、stashは削除しない</td>
+                  </tr>
+                  <tr>
+                    <td>pop {stash名}</td>
+                    <td>stashを適用して、stashは削除する</td>
+                  </tr>
+                </table>
+              </div>
+            </p>
+
+            <p>
+              <code>git tag {タグ名} {コミットid}</code>
+              タグの作成。コミットidは省略可能。省略した場合はHEADが指すコミットにタグがつく。
+              タグは特定のコミットに名前をつけるもの。リリースなどで使われる。
+            </p>
+          </section>
+        </article>
+
+      </main>
+    </div>
   </body>
 </html>
