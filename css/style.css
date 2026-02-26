@@ -82,18 +82,18 @@ textarea:not([rows]) {
 
 /* 目次 */
 .table-of-contents {
-    width: 75%;
-    border: 1px solid #ccc;      /* 枠線 */
-    background-color: #eaefef;   /* 枠内の背景色（灰色） */
-    padding: 8px 16px;                /* 内側の余白 */
-    display: inline-block;        /* 目次の内容にフィットしたサイズにする */
-    border-radius: 8px;          /* 角を丸くする */
+  width: 75%;
+  border: 1px solid #ccc;      /* 枠線 */
+  background-color: #eaefef;   /* 枠内の背景色（灰色） */
+  padding: 8px 16px;                /* 内側の余白 */
+  display: inline-block;        /* 目次の内容にフィットしたサイズにする */
+  border-radius: 8px;          /* 角を丸くする */
 }
 .table-of-contents li {
-    line-height: 2;  /* 行間を広げる */
+  line-height: 2;  /* 行間を広げる */
 }
 .table-of-contents a {
-    text-decoration:none;
+  text-decoration:none; 
 }
 .table-of-contents a:hover {
   color: blue;
@@ -101,28 +101,28 @@ textarea:not([rows]) {
 }
 
 /* コンテンツ */
-
+/* コード */
 code {
-    display: block;  /* 追加 */
-    background-color: #f0f0f0;
-    padding: 4px 6px;
-    border-radius: 4px;
-    overflow-x: auto;
-    line-height:1.5;
-    font-size:16px;
+  display: block;  /* 追加 */
+  background-color: #f0f0f0;
+  padding: 4px 6px;
+  border-radius: 4px;
+  overflow-x: auto;
+  line-height:1.5;
+  font-size:16px;
 }
 pre {
-    background-color: transparent;  /* preの背景色をリセット */
-    padding: 0;
-    margin: 0;
+  background-color: transparent;  /* preの背景色をリセット */
+  padding: 0;
+  margin: 0;
 }
 pre code {
-    background-color: #f0f0f0;
-    padding: 16px;
-    border-radius: 4px;
-    overflow-x: auto;  /* 横にはみ出た場合スクロールできるようにする */
-    line-height:1.5;
-    font-size:16px;
+  background-color: #f0f0f0;
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;  /* 横にはみ出た場合スクロールできるようにする */
+  line-height:1.5;
+  font-size:16px;
 }
 
 /* 表 */
@@ -142,11 +142,36 @@ pre code {
     padding: 8px;                /* セル内の余白 */
 }
 
+/* ボックス */
+article {
+  flex: 1;  /* 残りのスペースを全て使う */
+  padding: 16px;
+  order: 1;
+  border: 4px solid #cccccc;
+  border-radius: 16px;
+  margin-right: 25%;
+}
+
 /* サイドバー */
+main {
+  display:flex;
+}
+aside {
+  width:25%;
+  order:2;
+  position: fixed;  /* 画面に固定 */
+  top: 0;           /* 上端からの位置 */
+  right: 0;         /* 右端に配置（左端なら left: 0） */
+  height: 100vh;    /* 画面の高さいっぱいに */
+  padding: 16px;
+  background-color: #ffffff;
+  overflow-y: auto; /* 内容が多い場合はスクロール可能に */
+}
 .SectionNav {
-    border: 1px solid #ccc;      /* 枠線 */
-    padding: 16px;                /* 内側の余白 */
-    display: inline-block;        /* 目次の内容にフィットしたサイズにする */
+  border: 4px solid #ccc;      /* 枠線 */
+  border-radius: 16px;
+  padding: 16px;                /* 内側の余白 */
+  display: inline-block;        /* 目次の内容にフィットしたサイズにする */
 }
 .SectionNav li {
   line-height:2.0;
@@ -160,3 +185,4 @@ pre code {
 .SectionNav a:hover {
   color: blue;
   text-decoration: underline; /* ホバー時のみ下線あり */
+}
