@@ -38,6 +38,14 @@
 git config --global user.email "メールアドレス"</code></pre>
               --local > --global > --system の順番で優先 
             </p>
+            <p>
+              <code>git config --global core.autocrlf true</code>
+              もし、Windowsにて<br>
+              <code>warning: in the working copy of 'ファイル名', LF will be replaced by CRLF the next time Git touches it</code>
+              のような警告がきた場合に有効である(Gitが触るときにLF=>CRLFに書き換えるという警告)。<br>
+              Linuxでの改行LF:\n, Windowsでの改行CRLF:\r\n<br>
+              このコードをtrueにすると、OSに関わらず、リポジトリ内で改行=LFに統一することが出来る。
+            </p>
           </section>
 
           <section id="section2">
